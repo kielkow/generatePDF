@@ -1,10 +1,11 @@
 const PDFGenerator = require("pdfkit");
 const { once } = require("events");
 const fs = require("fs");
+const path = require("path");
 
 class GeneratePDF {
 	constructor() {
-		this.templatePath = "./templates";
+		this.templatePath = path.resolve(__dirname, './templates');
 	}
 
 	async generate({ fileName = "example", data = {} } = {}) {
